@@ -1,0 +1,8 @@
+body {
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.img-preview {
+    max-width: 100%;
+    border-radius: 1rem;
+}

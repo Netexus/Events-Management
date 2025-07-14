@@ -1,19 +1,66 @@
 {
-  "posts": [
+  "users": [
     {
       "id": 1,
-      "title": "json-server",
-      "author": "typicode"
-    }
-  ],
-  "comments": [
+      "name": "Luis",
+      "email": "lufemarc@gmail.com",
+      "username": "lucho",
+      "password": "lucho123",
+      "role": "user"
+    },
     {
       "id": 1,
-      "body": "some comment",
-      "postId": 1
+      "name": "Robinson Cortés",
+      "email": "robinson.cortés@riwi.io",
+      "username": "Robinson",
+      "password": "robinson123",
+      "role": "admin"
     }
   ],
-  "profile": {
-    "name": "typicode"
-  }
+  "events": [
+    {
+      "title": "Conferencia JavaScript",
+      "description": "Evento sobre JS moderno",
+      "date": "2025-08-01",
+      "location": "Auditorio Principal",
+      "availableSeats": 9,
+      "id": 1
+    },
+    {
+      "title": "Cositas",
+      "description": "Cositas",
+      "date": "2025-07-24",
+      "location": "Mi casa",
+      "availableSeats": 20,
+      "id": 2
+    },
+    {
+      "title": "asd",
+      "description": "asd",
+      "date": "2025-07-17",
+      "location": "asd",
+      "availableSeats": 23,
+      "id": 3
+    },
+    {
+      "title": "Cositas",
+      "description": "asd",
+      "date": "2025-07-17",
+      "location": "asd",
+      "availableSeats": 2,
+      "id": 5
+    }
+  ],
+  "registrations": [
+    {
+      "id": 1,
+      "userId": 2,
+      "eventId": 1
+    },
+    {
+      "userId": 4,
+      "eventId": 1,
+      "id": 2
+    }
+  ]
 }
