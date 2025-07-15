@@ -98,6 +98,8 @@ async function fetchAndRenderUserEvents() {
   }
 }
 
+fetchAndRenderUserEvents()
+
 // Delegación de eventos para registro
 document.addEventListener('click', async (e) => {
   if (e.target.classList.contains('register-event-btn')) {
@@ -108,21 +110,21 @@ document.addEventListener('click', async (e) => {
       loggedUser = JSON.parse(localStorage.getItem('loggedUser'));
     } catch {}
     if (!loggedUser) {
-      notesMessage.textContent = 'Debes iniciar sesión para registrarte.';
+      notesMessage.textContent = 'Youe need to log-in.';
       return;
     }
     // Verificar si ya está inscrito
     const regRes = await fetch(`${API_REGISTRATIONS}?userId=${loggedUser.id}&eventId=${eventId}`);
     const regs = await regRes.json();
     if (regs.length > 0) {
-      notesMessage.textContent = 'Ya estás inscrito en este evento.';
+      notesMessage.textContent = 'You are already enrolled.';
       return;
     }
     // Actualizar cupos
     const eventRes = await fetch(`${API_EVENTS}/${eventId}`);
     const event = await eventRes.json();
     if (event.availableSeats <= 0) {
-      notesMessage.textContent = 'No hay cupos disponibles para este evento.';
+      notesMessage.textContent = 'There are no more seats for this event.';
       fetchAndRenderUserEvents();
       return;
     }
@@ -130,7 +132,7 @@ document.addEventListener('click', async (e) => {
     await fetch(API_REGISTRATIONS, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ userId: loggedUser.id, eventId })
+      body: JSON.stringify({userId: loggedUser.id, eventId})
     });
     // Restar cupo
     await fetch(`${API_EVENTS}/${eventId}`, {

@@ -23,7 +23,7 @@
       "description": "Evento sobre JS moderno",
       "date": "2025-08-01",
       "location": "Auditorio Principal",
-      "availableSeats": 9,
+      "availableSeats": 8,
       "id": 1
     },
     {
@@ -31,7 +31,7 @@
       "description": "Cositas",
       "date": "2025-07-24",
       "location": "Mi casa",
-      "availableSeats": 20,
+      "availableSeats": 19,
       "id": 2
     },
     {
@@ -39,7 +39,7 @@
       "description": "asd",
       "date": "2025-07-17",
       "location": "asd",
-      "availableSeats": 23,
+      "availableSeats": 22,
       "id": 3
     },
     {
@@ -47,8 +47,16 @@
       "description": "asd",
       "date": "2025-07-17",
       "location": "asd",
-      "availableSeats": 2,
+      "availableSeats": 1,
       "id": 5
+    },
+    {
+      "title": "Event",
+      "description": "Good event",
+      "date": "2025-07-24",
+      "location": "Auditorium",
+      "availableSeats": 49,
+      "id": 6
     }
   ],
   "registrations": [
@@ -61,6 +69,31 @@
       "userId": 4,
       "eventId": 1,
       "id": 2
+    },
+    {
+      "userId": 1,
+      "eventId": 1,
+      "id": 3
+    },
+    {
+      "userId": 1,
+      "eventId": 2,
+      "id": 4
+    },
+    {
+      "userId": 1,
+      "eventId": 3,
+      "id": 5
+    },
+    {
+      "userId": 1,
+      "eventId": 5,
+      "id": 6
+    },
+    {
+      "userId": 1,
+      "eventId": 6,
+      "id": 7
     }
   ]
 }

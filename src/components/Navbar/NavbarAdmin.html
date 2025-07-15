@@ -1,12 +1,75 @@
-<nav class="navbar navbar-light bg-white shadow-sm px-4 py-2">
-  <span class="fw-bold fs-5"><a href="#">CrudNote</a></span>
-  <div class="ms-auto d-flex gap-3 align-items-center">
-    <!-- <a href="#" class="text-decoration-none text-dark">Home</a> -->
-    <!-- <a href="#contact" class="text-decoration-none text-dark">Contact</a>
-    <a href="#terms" class="text-decoration-none text-dark">Terms</a> -->
-    <a href="#dashboard" class="text-decoration-none text-dark">Events</a>
-    <span class="fw-semibold text-secondary" id="navbarUserName"></span>
-    <span class="fw-semibold text-secondary" id="navbarRole"></span>
-    <button class="btn btn-danger btn-sm" id="logoutBtn">Logout</button>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-2 d-flex flex-column align-items-center py-4 sidebar">
+      <h5 class="mb-4">Events</h5>
+      <img src="https://i.pravatar.cc/100" class="user-pic mb-2" alt="User">
+      <strong><span id="navbarUserName"></span></strong>
+      <small class="text-muted mb-4" id="navbarRole"></small>
+      <nav class="nav flex-column w-100 text-center">
+        <a class="nav-link active" href="#dashboard">👁 Events</a>
+        <a class="nav-link text-muted" id="logoutBtn">↪ Logout</a>
+      </nav>
+    </div>
   </div>
-</nav>
+</div>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-2 d-flex flex-column align-items-center py-4 sidebar">
+      <a href="#dashboard" class="text-decoration-none text-dark">👁 Events</a>
+      <span class="fw-semibold text-secondary" id="navbarUserName"></span>
+      <span class="fw-semibold text-secondary" id="navbarRole"></span>
+      <button class="btn btn-danger btn-sm" id="logoutBtn">↪ Logout</button>
+    </div>
+  </div>
+  <nav class="navbar navbar-light bg-white shadow-sm px-4 py-2">
+    <div class="ms-auto d-flex gap-3 align-items-center">
+    </div>
+  </nav>
+</div>
+
+<!-- <div class="container-fluid">
+  <div class="row">
+    <div class="col-md-2 d-flex flex-column align-items-center py-4 sidebar">
+      <h5 class="mb-4">Events</h5>
+      <img src="https://i.pravatar.cc/100" class="user-pic mb-2" alt="User">
+      <strong>Random guy</strong>
+      <small class="text-muted mb-4">Admin</small>
+      <nav class="nav flex-column w-100 text-center">
+        <a class="nav-link active" href="#">👁 Events</a>
+        <a class="nav-link text-muted" href="#">↪ Logout</a>
+      </nav>
+    </div>
+    <div class="col-md-10 p-5">
+      <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2>Events</h2>
+        <a href="create.html" class="btn btn-purple">ADD NEW EVENT</a>
+      </div>
+      <table class="table table-hover bg-white rounded shadow-sm">
+        <thead>
+          <tr>
+            <th></th>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Capacity</th>
+            <th>Date</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><img src="https://via.placeholder.com/50" class="table-avatar" alt="Event"></td>
+            <td>Karthi</td>
+            <td>Lorem usmum lorem imsum lorem imsum</td>
+            <td>12</td>
+            <td>08-Dec, 2021</td>
+            <td>
+              <a href="#"><i class="bi bi-pencil-fill me-2"></i></a>
+              <a href="#"><i class="bi bi-trash-fill text-danger"></i></a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div> -->

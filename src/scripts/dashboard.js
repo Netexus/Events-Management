@@ -64,35 +64,35 @@ if (window.location.hash === '#dashboard') {
 }
 
 
-async function fetchAndRenderEvents() {
-  try {
-    const res = await fetch(API_URL);
-    const events = await res.json();
-    renderEvents(events);
-  } catch (err) {
-    eventsTableBody.innerHTML = '<tr><td colspan="6">Error cargando eventos</td></tr>';
-  }
-}
+// async function fetchAndRenderEvents() {
+//   try {
+//     const res = await fetch(API_URL);
+//     const events = await res.json();
+//     renderEvents(events);
+//   } catch (err) {
+//     eventsTableBody.innerHTML = '<tr><td colspan="6">Error loading events</td></tr>';
+//   }
+// }
 
-function renderEvents(events) {
-  if (!events.length) {
-    eventsTableBody.innerHTML = '<tr><td colspan="6">No hay eventos</td></tr>';
-    return;
-  }
-  eventsTableBody.innerHTML = events.map(event => `
-    <tr data-id="${event.id}">
-      <td>${event.title}</td>
-      <td>${event.description}</td>
-      <td>${event.availableSeats}</td>
-      <td>${event.date}</td>
-      <td>${event.location}</td>
-      <td>
-        <button class="btn btn-sm btn-warning me-2 edit-event-btn">Edit</button>
-        <button class="btn btn-sm btn-danger delete-event-btn">Deleter</button>
-      </td>
-    </tr>
-  `).join('');
-}
+// function renderEvents(events) {
+//   if (!events.length) {
+//     eventsTableBody.innerHTML = '<tr><td colspan="6">There are no events</td></tr>';
+//     return;
+//   }
+//   eventsTableBody.innerHTML = events.map(event => `
+//     <tr data-id="${event.id}">
+//       <td>${event.title}</td>
+//       <td>${event.description}</td>
+//       <td>${event.availableSeats}</td>
+//       <td>${event.date}</td>
+//       <td>${event.location}</td>
+//       <td>
+//         <button class="btn btn-sm btn-warning me-2 edit-event-btn">Edit</button>
+//         <button class="btn btn-sm btn-danger delete-event-btn">Deleter</button>
+//       </td>
+//     </tr>
+//   `).join('');
+// }
 
 // Delegación de eventos para botones de editar/eliminar
 // (Funciona aunque la tabla se regenere)
