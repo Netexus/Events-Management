@@ -1,3 +1,9 @@
+# Develop by
+Luis Martinez
+Clan Berners Lee
+lufemarc@gmail.com
+1234989875
+
 # eventsManagement
 
 eventsManagement is a single-page application (SPA) for event management, developed with JavaScript, HTML, and CSS (Bootstrap). It allows administrators to manage events (CRUD), and visitors to view and register for events. It includes user authentication, roles, protected routes, session persistence, and synchronization with a simulated database using `json-server`.
