@@ -6,10 +6,8 @@ const API_URL = "http://localhost:3000";
 
 const form = document.getElementById("registerForm");
 
+
 form.addEventListener("submit", async (e) => {
-    console.log("Form submitted");
-});
-form.addEventListener("click", async (e) => {
     e.preventDefault();
 
     const formData = new FormData(form);
@@ -19,37 +17,40 @@ form.addEventListener("click", async (e) => {
     const password = formData.get("password").trim();
     const confirmPassword = formData.get("confirmPassword").trim();
 
-    // Validar campos requeridos
     if (!name || !email || !username || !password || !confirmPassword) {
         alert("All fields must be filled");
         return;
     }
 
-    // Validar formato del email
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
         alert("Please enter a valid email address");
         return;
     }
 
-    // Validar longitud mínima de contraseña
     if (password.length < 6) {
         alert("Password must be at least 6 characters long");
         return;
     }
 
-    // Verificar que las contraseñas coincidan
     if (password !== confirmPassword) {
         alert("Passwords do not match");
         return;
     }
 
-    // Verificar si el usuario ya existe
+    // Check if user already exists.
     try {
         const usernameCheck = await fetch(`${API_URL}/users?username=${username}`);
         const users = await usernameCheck.json();
         if (users.length > 0) {
             alert("Username already exists");
+            return;
+        }
+
+        const emailCheck = await fetch(`${API_URL}/users?email=${email}`);
+        const usersEmail = await emailCheck.json();
+        if (usersEmail.length > 0) {
+            alert("Email already exists")
             return;
         }
 
@@ -70,11 +71,11 @@ form.addEventListener("click", async (e) => {
         alert("User registered successfully!");
         form.reset();
         
-        // Redirigir a login usando el enrutador
-        console.log("Redirigiendo a login...");
-        console.log("Hash actual:", window.location.hash);
-        window.location.hash = "login";
-        console.log("Hash después de cambio:", window.location.hash);
+
+        console.log("Redirecting to login...");
+        console.log("Current Hash:", window.location.hash);
+        window.location.hash = "#";
+        console.log("Hash after the change:", window.location.hash);
         router();
 
     } catch (error) {

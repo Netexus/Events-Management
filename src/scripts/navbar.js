@@ -15,7 +15,7 @@ async function renderNavbar() {
     const response = await fetch(navbarPath);
     let html = await response.text();
     container.innerHTML = html;
-    // Asignar nombre de usuario si corresponde
+    // Assign name
     if (loggedUser && container.querySelector('#navbarUserName')) {
       container.querySelector('#navbarUserName').textContent = loggedUser.name;
     }
@@ -23,7 +23,7 @@ async function renderNavbar() {
     if (loggedUser && container.querySelector('#navbarRole')) {
       container.querySelector('#navbarRole').textContent = loggedUser.role;
     }
-    // Asignar evento logout si corresponde
+    // Event logout
     const logoutBtn = container.querySelector('#logoutBtn');
     if (logoutBtn) {
       logoutBtn.addEventListener('click', logout);

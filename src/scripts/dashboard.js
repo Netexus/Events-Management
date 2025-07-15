@@ -64,38 +64,37 @@ if (window.location.hash === '#dashboard') {
 }
 
 
-// async function fetchAndRenderEvents() {
-//   try {
-//     const res = await fetch(API_URL);
-//     const events = await res.json();
-//     renderEvents(events);
-//   } catch (err) {
-//     eventsTableBody.innerHTML = '<tr><td colspan="6">Error loading events</td></tr>';
-//   }
-// }
+async function fetchAndRenderEvents() {
+  try {
+    const res = await fetch(API_URL);
+    const events = await res.json();
+    renderEvents(events);
+  } catch (err) {
+    eventsTableBody.innerHTML = '<tr><td colspan="6">Error loading events</td></tr>';
+  }
+}
 
-// function renderEvents(events) {
-//   if (!events.length) {
-//     eventsTableBody.innerHTML = '<tr><td colspan="6">There are no events</td></tr>';
-//     return;
-//   }
-//   eventsTableBody.innerHTML = events.map(event => `
-//     <tr data-id="${event.id}">
-//       <td>${event.title}</td>
-//       <td>${event.description}</td>
-//       <td>${event.availableSeats}</td>
-//       <td>${event.date}</td>
-//       <td>${event.location}</td>
-//       <td>
-//         <button class="btn btn-sm btn-warning me-2 edit-event-btn">Edit</button>
-//         <button class="btn btn-sm btn-danger delete-event-btn">Deleter</button>
-//       </td>
-//     </tr>
-//   `).join('');
-// }
+function renderEvents(events) {
+  if (!events.length) {
+    eventsTableBody.innerHTML = '<tr><td colspan="6">No events</td></tr>';
+    return;
+  }
+  eventsTableBody.innerHTML = events.map(event => `
+    <tr data-id="${event.id}">
+      <td>${event.title}</td>
+      <td>${event.description}</td>
+      <td>${event.availableSeats}</td>
+      <td>${event.date}</td>
+      <td>${event.location}</td>
+      <td>
+        <button class="btn btn-sm btn-warning me-2 edit-event-btn">Edit</button>
+        <button class="btn btn-sm btn-danger delete-event-btn">Deleter</button>
+      </td>
+    </tr>
+  `).join('');
+}
 
-// Delegación de eventos para botones de editar/eliminar
-// (Funciona aunque la tabla se regenere)
+// Edit/Delete buttons
 eventsTableBody.addEventListener('click', async (e) => {
   const row = e.target.closest('tr');
   if (!row) return;
@@ -112,23 +111,23 @@ eventsTableBody.addEventListener('click', async (e) => {
       eventForm.eventLocation.value = event.location;
       eventForm.eventSeats.value = event.availableSeats;
       editingEventId = eventId;
-      eventFormTitle.textContent = 'Editar Evento';
+      eventFormTitle.textContent = 'Editar event';
     } catch (err) {
-      alert('Error cargando evento');
+      alert('Error loading events');
     }
   } else if (e.target.classList.contains('delete-event-btn')) {
     // Eliminar evento
-    if (!confirm('¿Seguro que deseas eliminar este evento?')) return;
+    if (!confirm('Are you sure you want to delet this event?')) return;
     try {
       await fetch(`${API_URL}/${eventId}`, { method: 'DELETE' });
       fetchAndRenderEvents();
     } catch (err) {
-      alert('Error eliminando evento');
+      alert('Error deleting event');
     }
   }
 });
 
-// Crear o editar evento
+// Create or edit event
 eventForm.addEventListener('submit', async (e) => {
   e.preventDefault();
   const newEvent = {
@@ -152,7 +151,7 @@ eventForm.addEventListener('submit', async (e) => {
         body: JSON.stringify(newEvent)
       });
     }
-    fetchAndRenderEvents(); // Mostrar inmediatamente el evento guardado
+    fetchAndRenderEvents();
     eventFormSection.style.display = 'none';
     eventForm.reset();
     editingEventId = null;
@@ -161,7 +160,7 @@ eventForm.addEventListener('submit', async (e) => {
   }
 });
 
-// Editar evento
+// Edit event
 window.editEvent = async function(id) {
   try {
     const res = await fetch(`${API_URL}/${id}`);
@@ -179,7 +178,7 @@ window.editEvent = async function(id) {
   }
 }
 
-// Eliminar evento
+// Delet event
 window.deleteEvent = async function(id) {
   if (!confirm('¿Seguro que deseas eliminar este evento?')) return;
   try {

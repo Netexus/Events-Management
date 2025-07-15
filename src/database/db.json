@@ -2,98 +2,57 @@
   "users": [
     {
       "id": 1,
-      "name": "Luis",
-      "email": "lufemarc@gmail.com",
-      "username": "lucho",
-      "password": "lucho123",
-      "role": "user"
-    },
-    {
-      "id": 1,
       "name": "Robinson Cortés",
-      "email": "robinson.cortés@riwi.io",
+      "email": "robinson.cortes@riwi.io",
       "username": "Robinson",
       "password": "robinson123",
       "role": "admin"
+    },
+    {
+      "name": "antony",
+      "email": "antony@rpm.com",
+      "username": "antony",
+      "password": "antony123",
+      "role": "user",
+      "id": 2
     }
   ],
   "events": [
     {
-      "title": "Conferencia JavaScript",
-      "description": "Evento sobre JS moderno",
-      "date": "2025-08-01",
-      "location": "Auditorio Principal",
-      "availableSeats": 8,
+      "title": "Riwi Talks",
+      "description": "Conecta con Celcia y escucha testimonios reales de empresas que han apostado por el talento joven",
+      "date": "2025-06-06",
+      "location": "Gradas Riwi 3er piso",
+      "availableSeats": 99,
       "id": 1
     },
     {
-      "title": "Cositas",
-      "description": "Cositas",
-      "date": "2025-07-24",
-      "location": "Mi casa",
+      "title": "PlatziConf",
+      "description": "No más eventos donde solo haces networking. Aquí conoces gente con la que harás cosas grandes.",
+      "date": "2025-08-30",
+      "location": "Ágora Centro de Convenciones",
       "availableSeats": 19,
       "id": 2
     },
     {
-      "title": "asd",
-      "description": "asd",
-      "date": "2025-07-17",
-      "location": "asd",
-      "availableSeats": 22,
+      "title": "CARÍN LEÓN | BOCA CHUECA TOUR 2025",
+      "description": "¡Carin León llega a Bogotá con su esperado Boca Chueca Tour 2025! 🎶🔥",
+      "date": "2025-11-08",
+      "location": "Estadio el Campín",
+      "availableSeats": 100,
       "id": 3
-    },
-    {
-      "title": "Cositas",
-      "description": "asd",
-      "date": "2025-07-17",
-      "location": "asd",
-      "availableSeats": 1,
-      "id": 5
-    },
-    {
-      "title": "Event",
-      "description": "Good event",
-      "date": "2025-07-24",
-      "location": "Auditorium",
-      "availableSeats": 49,
-      "id": 6
     }
   ],
   "registrations": [
     {
-      "id": 1,
       "userId": 2,
-      "eventId": 1
-    },
-    {
-      "userId": 4,
       "eventId": 1,
-      "id": 2
+      "id": 1
     },
     {
-      "userId": 1,
-      "eventId": 1,
-      "id": 3
-    },
-    {
-      "userId": 1,
+      "userId": 2,
       "eventId": 2,
-      "id": 4
-    },
-    {
-      "userId": 1,
-      "eventId": 3,
-      "id": 5
-    },
-    {
-      "userId": 1,
-      "eventId": 5,
-      "id": 6
-    },
-    {
-      "userId": 1,
-      "eventId": 6,
-      "id": 7
+      "id": 2
     }
   ]
 }

@@ -24,14 +24,9 @@
 
 // Definition of routes and their corresponding components
 const routes = {
-  // 'home': { component: './src/components/Home/Home.html', title: 'Events Management - Home' },
   '': { component: './src/components/login/Login.html', script: './src/scripts/login.js', title: 'Events Management - Login' },
   'register': { component: './src/components/register/Register.html', script: './src/scripts/register.js', title: 'Events Management - Register' },
-
-  // 'contact': { component: './src/components/Contact/Contact.html', title: 'Events Management - Contact' },
-  // 'terms': { component: './src/components/Terms/Terms.html', title: 'Events Management - Terms' },
-  // 'about': { component: './src/components/About/About.html', title: 'Events Management - About' },
-  'notes': { component: './src/components/Notes/Notes.html', script: './src/scripts/notes.js', title: 'Events Management - Eventos' },
+  'events': { component: './src/components/Events/Events.html', script: './src/scripts/events.js', title: 'Events Management - Eventos' },
   'dashboard': { component: './src/components/dashboard/Dashboard.html', script: './src/scripts/dashboard.js', title: 'Events Management - Dashboard' },
   'access-denied': { component: './src/components/AccessDenied/AccessDenied.html', title: 'Events Management - Access Denied Denegado' },
   '404': { component: './src/components/NotFound/NotFound.html', title: 'Events Management - Page Not Found' }
@@ -67,45 +62,44 @@ export async function loadComponent(route) {
     if (appContainer) {
       appContainer.innerHTML = html;
 
-      // Ejecutar el código JavaScript del componente cargado
+      // Run the JavaScript from the loaded component.
       const scripts = appContainer.getElementsByTagName('script');
       Array.from(scripts).forEach(script => {
         const newScript = document.createElement('script');
         if (script.src) {
           newScript.src = script.src;
-          newScript.async = false; // Asegurarse de que el script se ejecute en orden
+          newScript.async = false; // Make sure the script is executed in order
         } else {
           newScript.textContent = script.textContent;
         }
-        script.type = script.type || 'module'; // Asegurarse de que sea un módulo
+        script.type = script.type || 'module'; // Make sure it is a module
         script.parentNode.replaceChild(newScript, script);
       });
     }
 
-    // Cargar un archivo JS externo definido en routeData.script (si existe)
+    // Load an external JavaScript defined in routeData.script (if it exists)
     if (routeData.script) {
       const existingScript = document.querySelector(`script[src="${routeData.script}"]`);
       if (!existingScript) {
         const externalScript = document.createElement('script');
         externalScript.src = routeData.script;
-        externalScript.type = 'module'; // Asegurarse de que sea un módulo
+        externalScript.type = 'module';
         externalScript.async = false;
         document.body.appendChild(externalScript);
       }
     }
   } catch (error) {
     console.error('Error loading component:', error);
-    // Si hay un error, cargar la página de error 404
     loadComponent('404');
   }
 }
 
-// Manejador de enrutamiento
+// Routing management
 export function router() {
   console.log('Router ejecutándose');
   console.log('Hash actual:', window.location.hash);
 
-  // Obtener el hash de la URL (sin el #), o '' si está vacío
+  // Get the hash from the URL with no # or '' if it is empty
   const hash = window.location.hash.slice(1) || '';
 
   // Load the corresponding component
