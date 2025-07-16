@@ -10,6 +10,9 @@ const cancelEventBtn = document.getElementById('cancelEventBtn');
 const eventsTableBody = document.querySelector('#eventsTable tbody');
 const eventFormTitle = document.getElementById('eventFormTitle');
 
+const today = new Date().toISOString().split('T')[0]; // Set a variable with the current day.
+document.getElementById('eventDate').setAttribute('min', today); // Take the date attribute and set it as minimun the current day 
+
 // Estado de edición
 let editingEventId = null;
 
