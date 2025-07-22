@@ -2,7 +2,6 @@
 Luis Martinez
 Clan Berners Lee
 lufemarc@gmail.com
-1234989875
 
 # eventsManagement
 
